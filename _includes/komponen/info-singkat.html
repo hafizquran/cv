@@ -1,0 +1,23 @@
+{% if include.var %}
+
+  <p class="text-sm mb-2">
+    {% if include.var == page.email %}
+      <a href="mailto:{{include.var}}">{% include icon/email.html %}
+        {{include.var}}
+      </a>
+    {% elsif include.var== page.nomor_hp %}
+      <a href="sms:{{include.var}}">{% include icon/telepon.html %}
+        {{include.var}}
+      </a>
+    {% elsif include.var == page.kota %}
+      {% include icon/lokasi.html %}
+      {{include.var}}
+    {% elsif include.var == page.linkedin %}
+      <a href="https://www.linkedin.com/in/{{include.var}}">
+        {% include icon/presentasi.html %}
+        {{include.var}}
+      </a>
+    {% endif %}
+  </p>
+
+{% endif %}

@@ -1,0 +1,32 @@
+<div class="w-full bg-stone-200 p-10 py-7">
+  <h1 class="text-[60px] font-serif">{{page.nama}}</h1>
+  <p class="uppercase tracking-[5px] mt-1 text-stone-600 text-sm">
+    {{page.posisi}}
+  </p>
+</div>
+<div class="wadah p-10 pr-0 grid grid-cols-1 gap-8">
+  <div>
+    {% include komponen/judul-utama.html judul='Professional Profile' %}
+    <div class="pr-10">{{page.professional_profile}}</div>
+  </div>
+  <div>
+    {% include komponen/judul-utama.html judul='Experience' %}
+    <div class="grid grid-cols-1 gap-7 pr-10">
+      {% for x in page.experience %}
+      <div>
+        <h3 class="uppercase font-bold">{{x.job_title}}</h3>
+        <p class="mb-3 text-sm text-stone-500">
+          {{x.company_name}} / {{x.location}} / {{x.start_date}} -
+          {{x.end_date}}
+        </p>
+        <p class="mb-2">{{x.description}}</p>
+        <ul class="text-sm list-disc ml-5">
+          {% for y in x.rincian_tugas %}
+          <li>{{y}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

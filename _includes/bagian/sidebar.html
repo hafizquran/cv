@@ -1,0 +1,38 @@
+{% if page.email %}
+<img
+  class="gambar-profil rounded-[50%] overflow-hidden block mx-auto my-10"
+  src=""
+  alt=""
+/>
+{% endif %} {% include komponen/info-singkat.html var=page.nomor_hp %} {%
+include komponen/info-singkat.html var=page.email %} {% include
+komponen/info-singkat.html var=page.kota %} {% include
+komponen/info-singkat.html var=page.linkedin %} {% include
+komponen/judul-sidebar.html judul="Education" %}
+<div class="grid grid-cols-1 gap-7 mt-7">
+  {% for item in page.education %}
+  <div>
+    <h3 class="uppercase font-bold">{{ item.degree }}</h3>
+    <p class="text-sm">{{ item.university }}</p>
+    <p class="text-sm text-gray-500">{{ item.year }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% include komponen/judul-sidebar.html judul="Key Skills" %}
+<div class="grid grid-cols-1 gap-4 mt-7">
+  {% for item in page.skills %}
+  <p class="text-gray-700">{{item}}</p>
+  {% endfor %}
+</div>
+{% include komponen/judul-sidebar.html judul="Languages" %}
+<div class="grid grid-cols-1 gap-4 mt-7">
+  {% for item in page.languages %}
+  <p class="text-sm">
+    <span class="uppercase">{{item.bahasa}} </span>
+    <span class="text-gray-500">
+      <span>|</span>
+      <span>{{item.level}} </span>
+    </span>
+  </p>
+  {% endfor %}
+</div>

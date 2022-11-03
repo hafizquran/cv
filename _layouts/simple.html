@@ -2,4 +2,29 @@
 layout: base
 ---
 
-<p>Halo...</p>
+<div class="grid grid-cols-4 <md:grid-cols-3 <sm:grid-cols-1">
+  <div class="main col-span-3 <md:col-span-2 <sm:col-span-1 pt-10">
+    {% include bagian/main.html %}
+  </div>
+  <div class="sidebar min-h-screen bg-stone-200 col-span-1 px-10 pb-7">
+    {% include bagian/sidebar.html %}
+  </div>
+</div>
+
+<script type="module">
+  {% if page.email %}
+    import gravatar from "https://cdn.skypack.dev/gravatar";
+
+    document.querySelector(".gambar-profil").setAttribute("src", gravatar.url("{{page.email}}", {
+      s: "200",
+      d: "retro"
+    }));{% endif %}
+</script>
+
+<style>
+  @media (min-width: 639.9px) {
+    .sidebar {
+      grid-row: 1;
+    }
+  }
+</style>
